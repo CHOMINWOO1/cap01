@@ -40,7 +40,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
                 .load(arrayList.get(position).getFoodImage())
                 .into(holder.imageView);
         holder.tv_name.setText(arrayList.get(position).getFoodName());
-        holder.tv_cal.setText(arrayList.get(position).getFoodCal());
+        holder.tv_cal.setText(String.valueOf(arrayList.get(position).getFoodCal()));
     }
 
     @Override
