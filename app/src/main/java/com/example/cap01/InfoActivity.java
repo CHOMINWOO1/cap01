@@ -105,7 +105,8 @@ public class InfoActivity extends AppCompatActivity {
                             .set(textField).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                            Log.d(TAG,"Document has been savdfged!");
+                            Log.d(TAG,"Document has been saved!");
+                          //  Log.d(TAG,db.collection("개인 정보").document().getId()+"asdasd");
                             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                             startActivity(intent);
                         }

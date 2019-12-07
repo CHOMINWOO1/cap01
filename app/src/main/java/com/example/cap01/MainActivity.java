@@ -111,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d(TAG, document.getId().toString());
                                 weight= document.get("체중").toString();
                                 height=document.get("키").toString();
                             }
