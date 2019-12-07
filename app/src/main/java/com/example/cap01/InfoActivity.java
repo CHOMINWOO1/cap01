@@ -12,10 +12,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,7 +33,10 @@ public class InfoActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private static final String TAG = "입력";
     //Intent intent=getIntent();
-
+    String weight;
+    String height;
+    String goalw;
+    boolean check;
   //  String a=intent.getExtras().getString("Comment");
    // TextView textView1 = (TextView)findViewById(R.id.TextView1);
 
@@ -45,18 +52,20 @@ public class InfoActivity extends AppCompatActivity {
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = getIntent();
+        check=intent.getBooleanExtra("check",false);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
-
-        //textView1.setText(a);
+        if(!check)
+            getAllDocs();
         saveBtn=(Button)findViewById(R.id.btnSave);
         etWeight=(EditText)findViewById(R.id.etWeight);
         etHeight=(EditText)findViewById(R.id.etHeight);
         etGoalWeight=(EditText)findViewById(R.id.etGoalWeight);
 
-        String weight = etWeight.getText().toString();
-        String height = etHeight.getText().toString();
-        String goalw = etGoalWeight.getText().toString();
+        weight = etWeight.getText().toString();
+        height = etHeight.getText().toString();
+        goalw = etGoalWeight.getText().toString();
         /*
         Integer weight = Integer.parseInt(etWeight.getText().toString());
         Integer height = Integer.parseInt(etHeight.getText().toString());
@@ -64,18 +73,16 @@ public class InfoActivity extends AppCompatActivity {
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isNumeric(etWeight.getText().toString())&&isNumeric(etWeight.getText().toString())&&isNumeric(etWeight.getText().toString()))
+                if(weight.equals("")||height.equals("")||goalw.equals(""))
                 {
-
-                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                    Map<String, Integer> textField = new HashMap<>();
-                    Integer weight = Integer.parseInt(etWeight.getText().toString());
-                    Integer height = Integer.parseInt(etHeight.getText().toString());
-                    Integer goalw = Integer.parseInt(etGoalWeight.getText().toString());
+                    Map<String, Double> textField = new HashMap<>();
+                    Double weight = Double.parseDouble(etWeight.getText().toString());
+                    Double height = Double.parseDouble(etHeight.getText().toString());
+                    Double goalw = Double.parseDouble(etGoalWeight.getText().toString());
                     textField.put("체중",weight); //맵에 값 입력
                     textField.put("키",height);
                     textField.put("목표체중",goalw);
-
+/*
                     db.collection("개인 정보")
                             .add(textField)
                             .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -92,6 +99,22 @@ public class InfoActivity extends AppCompatActivity {
                             Log.w(TAG,"Document was not saved!",e);
                         }
                     });
+                    */
+                    db.collection("개인 정보")
+                            .document(dp.datepick())
+                            .set(textField).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Log.d(TAG,"Document has been savdfged!");
+                            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                            startActivity(intent);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w(TAG, "Document was not saved!", e);
+                        }
+                    });
                 }
                 else
                 {
@@ -99,5 +122,30 @@ public class InfoActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+    public void getAllDocs() {
+        // [START get_multiple_all]
+        db.collection("개인 정보")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            QuerySnapshot document = task.getResult();
+                            if (document.isEmpty()) {
+
+                            }
+                            else {
+                                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                                startActivity(intent);
+                           }
+
+                        }else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+
+                    }
+                });
+        // [END get_multiple_all]
     }
 }

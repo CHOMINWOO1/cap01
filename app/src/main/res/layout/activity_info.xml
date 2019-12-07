@@ -65,7 +65,7 @@
         app:layout_constraintVertical_bias="0.679" />
 
     <EditText
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:layout_width="120dp"
         android:layout_height="50dp"
         android:layout_marginStart="44dp"
@@ -82,7 +82,7 @@
         android:id="@+id/etHeight"></EditText>
 
     <EditText
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:layout_width="120dp"
         android:layout_height="50dp"
         android:layout_marginStart="44dp"
@@ -99,7 +99,7 @@
         android:id="@+id/etGoalWeight"></EditText>
 
     <EditText
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:layout_width="120dp"
         android:layout_height="50dp"
         android:layout_marginStart="44dp"
