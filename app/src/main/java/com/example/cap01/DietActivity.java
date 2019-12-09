@@ -20,7 +20,6 @@ public class DietActivity extends AppCompatActivity {
 
         Button buttonHome=(Button)findViewById(R.id.buttonHome);
         Button buttonSteps=(Button)findViewById(R.id.buttonSteps);
-        Button buttonStats=(Button)findViewById(R.id.buttonStats);
         Button buttonDiet=(Button)findViewById(R.id.buttonDiet);
 
         buttonHome.setOnClickListener(new View.OnClickListener() {
@@ -37,12 +36,6 @@ public class DietActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        buttonStats.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),StatsActivity.class);
-                startActivity(intent);
-            }
-        });
+
     }
 }

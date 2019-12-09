@@ -75,10 +75,10 @@ public class InfoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(weight.equals("")||height.equals("")||goalw.equals(""))
                 {
-                    Map<String, Double> textField = new HashMap<>();
-                    Double weight = Double.parseDouble(etWeight.getText().toString());
-                    Double height = Double.parseDouble(etHeight.getText().toString());
-                    Double goalw = Double.parseDouble(etGoalWeight.getText().toString());
+                    Map<String, Integer> textField = new HashMap<>();
+                    int weight = Integer.parseInt(etWeight.getText().toString());
+                    int height = Integer.parseInt(etHeight.getText().toString());
+                    int goalw = Integer.parseInt(etGoalWeight.getText().toString());
                     textField.put("체중",weight); //맵에 값 입력
                     textField.put("키",height);
                     textField.put("목표체중",goalw);

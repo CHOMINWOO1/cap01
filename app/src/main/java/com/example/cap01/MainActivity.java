@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         textView_Calories = (TextView)findViewById(R.id.textView_Calories) ;
         Button buttonSetting=(Button)findViewById(R.id.buttonSetting);
         Button buttonSteps=(Button)findViewById(R.id.buttonSteps);
-        Button buttonStats=(Button)findViewById(R.id.buttonStats);
+       // Button buttonStats=(Button)findViewById(R.id.buttonStats);
         Button buttonDiet=(Button)findViewById(R.id.buttonDiet);
 
         textView_Calories.setText("2000");
@@ -90,13 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent3);
             }
         });
-        buttonStats.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent4 = new Intent(getApplicationContext(),StatsActivity.class);
-                startActivity(intent4);
-            }
-        });
+
 
 
 
