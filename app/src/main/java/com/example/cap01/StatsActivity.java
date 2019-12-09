@@ -14,7 +14,7 @@ public class StatsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stats);
-//
+
         Button buttonHome=(Button)findViewById(R.id.buttonHome);
         Button buttonSteps=(Button)findViewById(R.id.buttonSteps);
         Button buttonStats=(Button)findViewById(R.id.buttonStats);
