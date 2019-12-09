@@ -34,14 +34,12 @@ public class StepsActivity extends AppCompatActivity implements SensorEventListe
     TextView tvStepDetector;
     private int mStepDetector;
 
-
+    private LineView lineView;
     private LineView lineView1;
     //수정부분
     private FirebaseFirestore db= FirebaseFirestore.getInstance();
-    public static ArrayList<Integer> Weight_ArrayList= new ArrayList<>();
-    public static ArrayList<String> Date_ArrayList= new ArrayList<>();
-    public static ArrayList<Integer> Calories_ArrayList= new ArrayList<>();
-    public static ArrayList<String> Date1_ArrayList= new ArrayList<>();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,6 +99,8 @@ public class StepsActivity extends AppCompatActivity implements SensorEventListe
 
     }
     public void getAllDocs() {
+        final ArrayList<Integer> Weight_ArrayList= new ArrayList<>();
+        final ArrayList<String> Date_ArrayList= new ArrayList<>();
         db.collection("개인 정보")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -116,7 +116,7 @@ public class StepsActivity extends AppCompatActivity implements SensorEventListe
                                 Date_ArrayList.add(document.getId().toString());
                             }
                         }
-                        LineView lineView = (LineView) findViewById(R.id.line_view);
+                        lineView = (LineView) findViewById(R.id.line_view);
 
 
                         // put data sets into datalist
@@ -133,13 +133,15 @@ public class StepsActivity extends AppCompatActivity implements SensorEventListe
                         });
                         lineView.setBottomTextList(Date_ArrayList);   // hour란 이름의 string array list 위에서 만듬
                         lineView.setDataList(dataLists);    // dataList란 이름의 integer array list 위에서 만듬
-                        lineView.onFinishTemporaryDetach();
+
 
                     }
                 });
     }
     /*
     public void getAllDocs2() {
+         final ArrayList<Integer> Calories_ArrayList= new ArrayList<>();
+         final ArrayList<String> Date1_ArrayList= new ArrayList<>();
         db.collection("칼로리")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
