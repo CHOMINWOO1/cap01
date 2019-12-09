@@ -1,76 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<?xml version="1.0" encoding="UTF-8"?>
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Step Detector Sensor"
-        android:layout_marginTop="50dp"
-        android:textSize="30dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:id="@+id/tvStepDetector"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Step Detect : 0"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:textSize="25dp"
-        />
+    <RelativeLayout android:background="@drawable/background_gradient" android:layout_height="match_parent" android:layout_width="match_parent" xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:background="@drawable/white_gradient"
+        android:layout_height="250dp"
+        android:layout_width="match_parent"
+        android:padding="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp">
+        <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:textSize="17dp" android:drawableLeft="@drawable/ic_history_black_24dp" android:drawableStart="@drawable/ic_history_black_24dp" android:textColor="#000000" android:text="걸음 수" android:id="@+id/tvStepDetector" />
+    </LinearLayout>
 
 
+    <LinearLayout android:background="@drawable/white_gradient" android:layout_height="170dp" android:layout_width="match_parent" android:padding="20dp" android:layout_marginRight="20dp" android:layout_marginTop="290dp" android:layout_marginLeft="20dp">
 
-    <Button
-        android:id="@+id/buttonHome"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="680dp"
-        android:text="Home"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+    <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:textSize="17dp" android:drawableLeft="@drawable/ic_history_black_24dp" android:drawableStart="@drawable/ic_history_black_24dp" android:textColor="#000000" android:text="활동시간" android:id="@+id/textView8"/>
 
-    <Button
-        android:id="@+id/buttonSteps"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="680dp"
-        android:text="걸음 수"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:enabled="false"/>
+</LinearLayout>
 
-    <Button
-        android:id="@+id/buttonStats"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
-        android:layout_marginLeft="200dp"
-        android:layout_marginTop="680dp"
-        android:text="통계"
-        app:layout_constraintEnd_toStartOf="@+id/buttonDiet"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/buttonDiet"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="308dp"
-        android:layout_marginLeft="308dp"
-        android:layout_marginTop="680dp"
-        android:text="식단"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout android:background="@drawable/white_gradient" android:layout_height="170dp" android:layout_width="match_parent" android:padding="20dp" android:layout_marginRight="20dp" android:layout_marginTop="480dp" android:layout_marginLeft="20dp">
+
+    <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:textSize="17dp" android:drawableLeft="@drawable/ic_restaurant_black_24dp" android:drawableStart="@drawable/ic_restaurant_black_24dp" android:textColor="#000000" android:text="음식" android:id="@+id/textView7"/>
+
+</LinearLayout>
+
+    <Button android:layout_height="wrap_content" android:layout_width="100dp" android:layout_marginTop="680dp" android:text="Home" android:id="@+id/buttonHome" app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"/>
+
+    <Button android:layout_height="wrap_content" android:layout_width="100dp" android:layout_marginTop="680dp" android:layout_marginLeft="100dp" android:text="걸음 수" android:id="@+id/buttonSteps" app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent" android:enabled="false" android:layout_marginStart="100dp"/>
+
+    <Button android:layout_height="wrap_content" android:layout_width="100dp" android:layout_marginTop="680dp" android:layout_marginLeft="200dp" android:text="통계" android:id="@+id/buttonStats" app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="200dp" app:layout_constraintHorizontal_bias="1.0" app:layout_constraintEnd_toStartOf="@+id/buttonDiet"/>
+
+    <Button android:layout_height="wrap_content" android:layout_width="100dp" android:layout_marginTop="680dp" android:layout_marginLeft="308dp" android:text="식단" android:id="@+id/buttonDiet" app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="308dp"/>
+
+</RelativeLayout>

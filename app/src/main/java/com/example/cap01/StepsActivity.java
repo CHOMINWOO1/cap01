@@ -78,7 +78,7 @@ public class StepsActivity extends AppCompatActivity implements SensorEventListe
         if(event.sensor.getType() == Sensor.TYPE_STEP_DETECTOR) {
             if(event.values[0] == 1.0f) {
                 mStepDetector++;
-                tvStepDetector.setText("Step Detect : " + String.valueOf(mStepDetector));
+                tvStepDetector.setText( String.valueOf(mStepDetector));
             }
         }
     }
