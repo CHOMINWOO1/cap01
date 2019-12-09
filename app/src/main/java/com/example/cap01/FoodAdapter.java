@@ -57,6 +57,15 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
             this.imageView = itemView.findViewById(R.id.imageView);
             this.tv_name = itemView.findViewById(R.id.tv_name);
             this.tv_cal = itemView.findViewById(R.id.tv_cal);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                }
+            });
         }
+
+
     }
 }
