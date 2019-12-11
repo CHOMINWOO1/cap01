@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".DietActivity" />
+        <activity android:name=".FoodlistActivity"/>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" />

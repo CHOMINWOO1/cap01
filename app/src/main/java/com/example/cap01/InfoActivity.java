@@ -82,24 +82,6 @@ public class InfoActivity extends AppCompatActivity {
                     textField.put("체중",weight); //맵에 값 입력
                     textField.put("키",height);
                     textField.put("목표체중",goalw);
-/*
-                    db.collection("개인 정보")
-                            .add(textField)
-                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                @Override
-                                public void onSuccess(DocumentReference documentReference) {
-                                    Log.d(TAG,"Document has been saved!");
-                                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                                    startActivity(intent);
-
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.w(TAG,"Document was not saved!",e);
-                        }
-                    });
-                    */
                     db.collection("개인 정보")
                             .document(dp.datepick())
                             .set(textField).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -108,6 +90,7 @@ public class InfoActivity extends AppCompatActivity {
                             Log.d(TAG,"Document has been saved!");
                           //  Log.d(TAG,db.collection("개인 정보").document().getId()+"asdasd");
                             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
                         }
                     }).addOnFailureListener(new OnFailureListener() {

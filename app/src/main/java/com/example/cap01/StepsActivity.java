@@ -45,6 +45,7 @@ public class StepsActivity extends AppCompatActivity implements SensorEventListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_steps);
         getAllDocs();
+        getAllDocs2();
         tvStepDetector = (TextView)findViewById(R.id.tvStepDetector);
         sensorManager = (SensorManager)getSystemService(Context.SENSOR_SERVICE);
         stepDetectorSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR);
@@ -60,6 +61,7 @@ public class StepsActivity extends AppCompatActivity implements SensorEventListe
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),DietActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         });
@@ -67,6 +69,7 @@ public class StepsActivity extends AppCompatActivity implements SensorEventListe
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         });
@@ -138,7 +141,7 @@ public class StepsActivity extends AppCompatActivity implements SensorEventListe
                     }
                 });
     }
-    /*
+
     public void getAllDocs2() {
          final ArrayList<Integer> Calories_ArrayList= new ArrayList<>();
          final ArrayList<String> Date1_ArrayList= new ArrayList<>();
@@ -152,11 +155,11 @@ public class StepsActivity extends AppCompatActivity implements SensorEventListe
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
                                 String CaloriesAdapter = document.get("칼로리").toString();
-                                Calories_ArrayList.add(Integer.parseInt(WeightAdapter));
+                                Calories_ArrayList.add(Integer.parseInt(CaloriesAdapter));
                                 Date1_ArrayList.add(document.getId().toString());
                             }
                         }
-                        lineView1 = (LineView1) findViewById(R.id.line_view);
+                        lineView1 = (LineView) findViewById(R.id.line_view1);
 
 
                         // put data sets into datalist
@@ -166,7 +169,7 @@ public class StepsActivity extends AppCompatActivity implements SensorEventListe
 
                         // draw line graph
                         lineView1.setDrawDotLine(true);                             //마커
-                        lineView1.setShowPopup(LineView1.SHOW_POPUPS_NONE);       //SHOW_POPUPS_All = 1(모든 데이터 값 보기), SHOW_POPUPS_MAXMIN_ONLY = 2 최솟값, 최대값만 보여줌, NONE 아무것도 안보임
+                        lineView1.setShowPopup(LineView.SHOW_POPUPS_NONE);       //SHOW_POPUPS_All = 1(모든 데이터 값 보기), SHOW_POPUPS_MAXMIN_ONLY = 2 최솟값, 최대값만 보여줌, NONE 아무것도 안보임
                         lineView1.setColorArray(new int[]{
                                 Color.parseColor("#e74c3c")//  Color.parseColor("#1abc9c")
                         });
@@ -176,5 +179,5 @@ public class StepsActivity extends AppCompatActivity implements SensorEventListe
                 });
     }
 
-     */
+
 }

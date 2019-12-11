@@ -2,11 +2,13 @@ package com.example.cap01;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -50,7 +52,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
         return (arrayList != null ? arrayList.size() : 0);
     }
 
-    public class FoodViewHolder extends RecyclerView.ViewHolder {
+    public class FoodViewHolder extends RecyclerView.ViewHolder  {
         ImageView imageView;
         TextView tv_name, tv_cal;
         public FoodViewHolder(@NonNull View itemView) {
@@ -58,16 +60,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
             this.imageView = itemView.findViewById(R.id.imageView);
             this.tv_name = itemView.findViewById(R.id.tv_name);
             this.tv_cal = itemView.findViewById(R.id.tv_cal);
-            /*
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent();
-                    intent.putExtra("음식이름",tv_name.getText().toString());
-                    intent.putExtra("음식칼로리",tv_cal.getText().toString());
-
-                }
-            });*/
         }
+
     }
 }
