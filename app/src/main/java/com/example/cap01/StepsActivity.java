@@ -130,7 +130,7 @@ public class StepsActivity extends AppCompatActivity implements SensorEventListe
 
                         // draw line graph
                         lineView.setDrawDotLine(true);                             //마커
-                        lineView.setShowPopup(LineView.SHOW_POPUPS_NONE);       //SHOW_POPUPS_All = 1(모든 데이터 값 보기), SHOW_POPUPS_MAXMIN_ONLY = 2 최솟값, 최대값만 보여줌, NONE 아무것도 안보임
+                        lineView.setShowPopup(LineView.SHOW_POPUPS_All);       //SHOW_POPUPS_All = 1(모든 데이터 값 보기), SHOW_POPUPS_MAXMIN_ONLY = 2 최솟값, 최대값만 보여줌, NONE 아무것도 안보임
                         lineView.setColorArray(new int[]{
                                 Color.parseColor("#e74c3c")//  Color.parseColor("#1abc9c")
                         });
@@ -143,8 +143,8 @@ public class StepsActivity extends AppCompatActivity implements SensorEventListe
     }
 
     public void getAllDocs2() {
-         final ArrayList<Integer> Calories_ArrayList= new ArrayList<>();
-         final ArrayList<String> Date1_ArrayList= new ArrayList<>();
+        final ArrayList<Integer> Calories_ArrayList= new ArrayList<>();
+        final ArrayList<String> Date1_ArrayList= new ArrayList<>();
         db.collection("칼로리")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -169,7 +169,7 @@ public class StepsActivity extends AppCompatActivity implements SensorEventListe
 
                         // draw line graph
                         lineView1.setDrawDotLine(true);                             //마커
-                        lineView1.setShowPopup(LineView.SHOW_POPUPS_NONE);       //SHOW_POPUPS_All = 1(모든 데이터 값 보기), SHOW_POPUPS_MAXMIN_ONLY = 2 최솟값, 최대값만 보여줌, NONE 아무것도 안보임
+                        lineView1.setShowPopup(LineView.SHOW_POPUPS_All);       //SHOW_POPUPS_All = 1(모든 데이터 값 보기), SHOW_POPUPS_MAXMIN_ONLY = 2 최솟값, 최대값만 보여줌, NONE 아무것도 안보임
                         lineView1.setColorArray(new int[]{
                                 Color.parseColor("#e74c3c")//  Color.parseColor("#1abc9c")
                         });
