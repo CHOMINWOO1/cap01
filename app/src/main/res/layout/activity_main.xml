@@ -135,6 +135,7 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
+                    android:maxLength="7"
                     android:id="@+id/textView_Calories"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

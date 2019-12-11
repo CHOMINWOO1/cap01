@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
        // Button buttonStats=(Button)findViewById(R.id.buttonStats);
         Button buttonDiet=(Button)findViewById(R.id.buttonDiet);
 
-        textView_Calories.setText("2000");
+
         Intent intent=getIntent();
 /*
         DocumentReference docRef = db.collection("개인 정보").document("asd");
@@ -115,6 +115,8 @@ public class MainActivity extends AppCompatActivity {
                             textView_Weight.setText(weight);
                             double bmi= Double.parseDouble(weight)/(Double.parseDouble(height)*Double.parseDouble(height))*10000;
                             textView_BMI.setText(Double.toString(bmi));
+                            double cal=Double.parseDouble(weight)*31.12;
+                            textView_Calories.setText(Double.toString(cal));
                         } else {
                             Log.d(TAG, "Error getting documents: ", task.getException());
                         }
