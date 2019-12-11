@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -60,7 +62,10 @@ public class FoodlistActivity extends AppCompatActivity {
             }
         });
 
+
         adapter = new FoodAdapter(arrayList,this);
         recyclerView.setAdapter(adapter); //리사이클러뷰에 Adapter 연결
+
     }
+
 }

@@ -1,6 +1,7 @@
 package com.example.cap01;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,15 +58,16 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
             this.imageView = itemView.findViewById(R.id.imageView);
             this.tv_name = itemView.findViewById(R.id.tv_name);
             this.tv_cal = itemView.findViewById(R.id.tv_cal);
-
+            /*
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    Intent intent = new Intent();
+                    intent.putExtra("음식이름",tv_name.getText().toString());
+                    intent.putExtra("음식칼로리",tv_cal.getText().toString());
 
                 }
-            });
+            });*/
         }
-
-
     }
 }

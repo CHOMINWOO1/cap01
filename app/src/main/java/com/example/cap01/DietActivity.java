@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 
 public class DietActivity extends AppCompatActivity {
@@ -33,6 +34,33 @@ public class DietActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),StepsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ImageButton moring, lunch, dinner;
+        moring = findViewById(R.id.foodMoring);
+        lunch = findViewById(R.id.foodLunch);
+        dinner = findViewById(R.id.foodDinner);
+
+        moring.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),FoodlistActivity.class);
+                startActivity(intent);
+            }
+        });
+        lunch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),FoodlistActivity.class);
+                startActivity(intent);
+            }
+        });
+        dinner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),FoodlistActivity.class);
                 startActivity(intent);
             }
         });
